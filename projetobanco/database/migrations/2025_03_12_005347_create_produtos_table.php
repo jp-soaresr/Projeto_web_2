@@ -13,16 +13,12 @@ return new class extends Migration
     {
         Schema::create('produtos', function (Blueprint $table) {
             $table->id();
-            $table->string('nome', 100);
+            $table->string('nome');
             $table->text('descricao')->nullable();
             $table->decimal('preco', 10, 2);
             $table->integer('estoque')->default(0);
-
-
-
-            $table->unsignedBigInteger('categoria_id'); // aqui estaria sendo feito a referencia a coluna 
-            $table->foreign('categoria_id')->references('id')->on('categorias')->onDelete('restrict'); // aqui estaria sendo feito a referencia a chave estrangeira
-
+            $table->unsignedBigInteger('categoria_id');
+            $table->foreign('categoria_id')->references('id')->on('categorias')->onDelete('restrict');
             $table->timestamps();
         });
     }

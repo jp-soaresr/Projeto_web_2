@@ -12,13 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('clientes', function (Blueprint $table) {
-            $table->id();
-
-            $table->string('nome', 100);
-            $table->string('email')->unique(); // faz com que seja unico na tabela
-            // $table->doble('salario', 8, 2); // sendo que e um numero com 8 casas e 2 apos a virgula
-            $table->string('telefone')->nullable(); // pode fazer com que a variavel aceite null 
-
+            $table->id(); //PRIMARY KEY AUTO_INCREMENT
+            $table->string('nome', 100); //VARCHAR(100)
+            $table->string('email')->unique();
+            $table->string('tefone')->nullable();
             $table->timestamps();
         });
     }
